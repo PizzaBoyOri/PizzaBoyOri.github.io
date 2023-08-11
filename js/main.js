@@ -49,3 +49,14 @@ window.onscroll = function() {
 });
 
 /* new WOW().init(); */
+
+const pass = "0772030207";
+function checkPassword() {
+	const passwordInput = document.getElementById("password-input");
+	const enteredPassword = passwordInput.value;
+	if (enteredPassword === pass) {
+		window.location.href = "calculator.html";
+	} else {
+		window.location.reload();
+	}
+}
