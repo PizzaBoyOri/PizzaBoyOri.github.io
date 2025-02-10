@@ -1,177 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PizzaBoy</title>
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/magnific-popup.css" />
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzcado - Artisanal Pizza Experiences</title>
+    <!-- We'll use a single CSS framework instead of multiple CSS files -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <!-- Google Fonts - Hebrew -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Rubik:wght@300;400;500;700&display=swap&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* Custom styles with Hebrew font support */
+        :root {
+            --primary-font: 'Rubik Moonrocks', sans-serif;
+            --secondary-font: 'Rubik', sans-serif;
+        }
+
+        body {
+            font-family: var(--secondary-font);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--primary-font);
+        }
+
+        /* Custom styles */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
+            url('images/pizzcado-hero.jpg') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+        }
+
+        .menu-open {
+            transform: translateX(0%);
+        }
+    </style>
 </head>
-
 <body>
-    <div class="background">
-        <header class="header">
-            <div class="containerSecond">
-                <div class="header__body">
-                    <a href="#" class="header__logo">
-                        <picture>
-                            <source srcset="pizzaimg/logo-removebg-preview.png" type="image/webp" />
-                            <img class="img-size" src="pizzaimg/logo-removebg-preview.png" alt="" /></picture>
+<!-- Navigation -->
+<nav class="fixed w-full bg-black bg-opacity-90 shadow-lg z-50">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex-shrink-0">
+                <img src="images/pizzcado-logo.png" alt="Pizzcado Logo" class="h-10">
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-white hover:text-gray-400">הסיפור שלנו</a>
+                <a href="#services" class="text-white hover:text-gray-400">שירותים</a>
+                <a href="#gallery" class="text-white hover:text-gray-400">גלריה</a>
+                <a href="menu-policy.pdf" target=”_blank” class="text-white hover:text-gray-400">תפריט</a>
+                <a href="#contact" class="text-white hover:text-gray-400">צרו קשר</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-gray-900">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white" dir="rtl">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="#about" class="block px-3 py-2 text-gray-600 hover:text-gray-900">הסיפור שלנו</a>
+            <a href="#services" class="block px-3 py-2 text-gray-600 hover:text-gray-900">שירותים</a>
+            <a href="#gallery" class="block px-3 py-2 text-gray-600 hover:text-gray-900">גלריה</a>
+            <a href="menu-policy.pdf" target=”_blank” class="block px-3 py-2 text-gray-600 hover:text-gray-900">תפריט</a>
+            <a href="#contact" class="block px-3 py-2 text-gray-600 hover:text-gray-900">צרו קשר</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section flex items-center justify-center text-center text-white">
+    <div class="px-4">
+        <h1 class="text-5xl md:text-6xl font-bold mb-16">Welcome to Pizzcado</h1>
+        <h2 class="text-xl md:text-2xl mb-16">~ כשפיצה ודגים נפגשים ~</h2>
+        <h2 class="text-xl md:text-2xl mb-16">כל המוצרים נעשים בעבודת יד, בתשומת לב והמון אהבה</h2>
+        <a href="#contact" class="bg-white text-gray-900 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+            הזמינו עכשיו
+        </a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-20 bg-white" dir="rtl">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-1 md:order-2 text-right">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">הסיפור שלנו</h2>
+                <p class="text-gray-600 text-lg mb-6">
+                    פיצקדו נולד מתוך תשוקה לים, לדגים ולקולינריה האיטלקית, והפך לחוויה קולינרית בלתי נשכחת שתעשיר את האירוע שלכם בטעמים, יצירתיות ואיכות.
+                </p>
+                <p class="text-gray-600 text-lg mb-6">
+                    עם כל ביס, תחוו חיבור לתענוגות החיים ולרגעים שמשאירים חיוך עד הפעם הבאה.
+                </p>
+                <p class="text-gray-600 text-lg mb-6">
+                    מחכים להתרגש איתכם, צוות פיצקדו.
+                </p>
+                <div class="mt-8 text-center">
+                    <a href="menu-policy.pdf" target=”_blank” class="bg-black text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                        לתפריט שלנו
                     </a>
-                    <div class="header__burger">
-                        <span></span>
-                    </div>
-                    <nav class="header__menu">
-                        <ul class="header__list">
-                            <li>
-                                <a href="#pizzaboy" class="header__link">PizzaBoy</a>
-                            </li>
-                            <li>
-                                <a href="#cocktailboy" class="header__link">CocktailBoy</a>
-                            </li>
-                            <li>
-                                <a href="#Kids" class="header__link">סדנאות</a>
-                            </li>
-                            <li>
-                                <a href="menu-policy.html" target="_blank" class="header__link">תפריט</a>
-                            </li>
-                            <li>
-                                <a href="#gallery" class="header__link">גלריה</a>
-                            </li>
-                            <li>
-                                <a href="https://13tv.co.il/item/special/recommended/food/pizzaboy-2210481/" target="_blank" class="header__link">!כתבו עלינו</a>
-                            </li>
-                            <li>
-                                <a href="#contact" class="header__link">צור קשר</a>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
-        </header>
-
-        <section class="main__Txt">
-            <div class="container">
-                <div class="main__Txt__inner">
-                    <h1 class="main__Txt-1 wow fadeIn animated" data-wow-delay="0.5s"><img src="pizzaimg/pizzaboylogo.png" width="350" height="78" alt="PizzaBoy" /></a></h1>
-                    <div class="main__Txt-2">
-                        <img src="pizzaimg/underlogopizzaboy.png" width="320" height="67" alt="PizzaBoy" /></a>
-                    </div>
-                </div>
+            <div class="order-2 md:order-1 relative h-96">
+                <img src="images/pizzcado-hero.jpeg" alt="Pizzcado Experience" class="w-full h-full object-cover rounded-lg shadow-xl">
             </div>
-        </section>
+        </div>
     </div>
+</section>
 
-    <section id="pizzaboy" class="ourStory">
-        <div class="container">
-            <div class="ourstory__box">
-                <div class="ourstory-left wow fadeInLeft animated">
-                    <a class="magnific-popup" href="pizzaimg/pizzaBanner.jpg"><img src="pizzaimg/pizzaBanner.jpg" alt="" /></a>
+<!-- Services Section -->
+<section id="services" class="py-20 bg-gray-50" dir="rtl">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">השירותים שלנו</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Private Events -->
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <img src="images/private.jpeg" alt="אירועים פרטיים" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-xl font-semibold mb-2">אירועים פרטיים</h3>
+                <p class="text-gray-600">
+                    חוגגים יום הולדת? מסיבת רווקים/ות? או סתם מפגש משפחתי?
+                    אנחנו כאן בשבילכם עם תפריט עשיר, עמדה מעוצבת ושירות מושלם שיהפכו את האירוע שלכם לבלתי נשכח
+                </p>
+            </div>
+
+            <!-- Corporate Events -->
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <img src="images/29.jpg" alt="אירועי חברה" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-xl font-semibold mb-2">אירועי חברה</h3>
+                <p class="text-gray-600">
+                    ערבי גיבוש, כנסים או אירועי חברה? נביא את הציוד המקצועי שלנו, כולל תנורי פיצה איכותיים ועמדת הגשה מרשימה.
+                    כולל אפשרות למלצרים מקצועיים
+                </p>
+            </div>
+
+            <!-- Large Events -->
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <img src="images/big.jpeg" alt="אירועים גדולים" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-xl font-semibold mb-2">אירועים גדולים</h3>
+                <p class="text-gray-600">
+                    מתחתנים? חוגגים בר/בת מצווה? אירוע גדול?
+                    נתאים לכם חבילה מושלמת הכוללת מגוון פיצות, מנות ראשונות, סלטים וקינוחים. צוות מקצועי ושירות מלא
+                </p>
+            </div>
+        </div>
+
+        <!-- Additional Services Info -->
+        <div class="mt-16 bg-white rounded-lg shadow-sm p-8 text-center">
+            <h3 class="text-2xl font-semibold mb-4">הציוד והשירות שלנו</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-2">ציוד מקצועי</h4>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>תנורי פיצה איטלקיים מקצועיים</li>
+                        <li>עמדת הגשה מעוצבת ומרשימה</li>
+                        <li>כל הציוד הנדרש להכנה והגשה</li>
+                    </ul>
                 </div>
-                <div class="ourstory-right">
-                    <div class="ourstory-title">Pizza Boy</div>
-                    <div class="strip wow bounce"></div>
-                    <div class="outstory-subtitle">
-                        אורי וצוות "Pizza Boy" הם לא סתם עוד קייטרינג שבא, מכין פיצות ומסיים את הערב. הם מקפידים ליצור קשר אישי עם בעלי השמחה ומביאים איתם אווירה שמחה וחגיגית. הם מגיעים עם תלבושת מיוחדת ומקשטים עבורכם את חצר הבית, בדרך זו שתרגישו ממש כמו באיטליה. כך שלא משנה אם אתם חוגגים יום הולדת, חינה, מסיבת רווקות או כל אירוע משמח אחר – "PizzaBoy" יקפיצו את האירוע שלכם לכמה רמות למעלה.                    </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-2">שירותים נוספים</h4>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>צוות מקצועי ומסור</li>
+                        <li>אפשרות לשירותי מלצרות</li>
+                        <li>התאמה אישית לכל אירוע</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="cocktailboy" class="ourStory" style="  background: url(pizzaimg/darker_cocktail.png) no-repeat;
-  background-size: cover;
-  padding: 120px 15px 120px 15px;;: ">
-        <div class="container">
-            <div class="ourstory__box">
-                <div class="ourstory-left wow fadeInLeft animated">
-                    <a class="magnific-popup" href="pizzaimg/cocktail.jpg"><img src="pizzaimg/cocktail.jpg" alt="" /></a>
-                </div>
-                <div class="ourstory-right">
-                    <div class="ourstory-title">Cocktail Boy</div>
-                    <div class="strip wow bounce"></div>
-                    <div class="outstory-subtitle">
-בנוסף לפיצות, כעת אנו מוסיפים שירות חדש - "Cocktail Boy" - אפשרות מגניבה להוספת בר קוקטיליים ברמה גבוהה לאירוע שלכם.<br> ישנם אפשרויות רבות של קוקטיילים, והכל בהתאמה עם בעל האירוע, אז אם אתם אוהבי אלכוהול, זאת אפשרות מצוינת להפוך את האירוע שלכם לאקסטרה מיוחד!
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
-
-    <section id="Kids" class="ourStory" style="background: url(pizzaimg/back_child_black.jpg) no-repeat;
-  background-size: cover;
-  padding: 120px 15px 120px 15px;;: ">
-        <div class="container">
-            <div class="ourstory__box">
-                <div class="ourstory-left wow fadeInLeft animated">
-                    <a class="magnific-popup" href="pizzaimg/children.jpg"><img src="pizzaimg/children.jpg" alt="" /></a>
-                </div>
-                <div class="ourstory-right">
-                    <div class="ourstory-title">Work Shops</div>
-                    <div class="strip wow bounce"></div>
-                    <div class="outstory-subtitle">
-                        מחפשים רעיון מגניב ליום הולדת לילדים? פעילות מיוחדת עם הצוות? PizzaBoy משיקים סדנאות פיצה! הסדנאות מושקעות מאוד ויורדות לפרטים של הכנת בצק, הכנת רוטב, תוספות מיוחדות, וכמובן הכנה ואפיית הפיצות. הסדנא היא חווייתית לכל הגילאים, וכוללת בתוכה אכילה מרובה של פיצות!
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="recipes" id="contact" style="background: url(pizzaimg/menu_back.png) no-repeat;
-  background-size: cover;
-  padding: 120px 15px 120px 15px;;: ">
-        <div class="container">
-            <div class="recipes__inner">
-                <div class="recipes-right">
-                    <div class="recipes-title">Contact us</div>
-                    <a href="tel:0546470448" style="color: white">054-647-0448 - אורי חלפון</a><br><br>
-                    <a href="https://www.instagram.com/pizzaboy_orihalfon/" target="_blank"><img src="pizzaimg/instagram.png" alt="instagram" style="width: 100px"></a>
-                    <a href="https://www.facebook.com/profile.php?id=100063509833568" target="_blank"><img src="pizzaimg/facebook.png" alt="facebook" style="width: 100px"></a>
-                    <a href="https://wa.link/uh6q3u" target="_blank"><img src="pizzaimg/whatsapp-button.png" alt="whatsapp" style="width: 280px"></a>
-                </div>
-            </div>
-        </div>
-    </section>
-<div class="gallery" id="gallery"><script src="https://apps.elfsight.com/p/platform.js" defer></script>
-    <div class="elfsight-app-9f4dc0c2-e02a-46c3-9f11-7de2da665049"></div></div>
-    <div class="footer-basic">
-        <footer>
-            <div class="social"><a href="https://www.instagram.com/pizzaboy_orihalfon/" target="_blank"><i class="icon ion-social-instagram"></i></a><a href="https://www.facebook.com/profile.php?id=100063509833568" target="_blank"><i class="icon ion-social-facebook"></i></a></div>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Home</a></li>
-                <li class="list-inline-item"><a href="menu-policy.html">Menu & Policy</a></li>
-                <li><br></li>
-                <li class="password-box">
-                    <input type="password" id="password-input" placeholder="Enter Password">
-                    <button class="button-30" role="button" id="submit-button" onclick="checkPassword()">Submit</button>
-                </li>
-            </ul>
-            <p class="copyright">PizzaBoy & Friends © 2023</p>
-        </footer>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+</section>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!--     <script src="js/slick.min.js"></script> -->
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script>
-      wow = new WOW( {
-          boxClass:     'wow',
-          animateClass: 'animated',
-          offset:       100
-          }
-      );
-      
-      wow.init();
-      </script> 
-    <script src="js/main.js"></script>
+<!-- Gallery Section -->
+<section id="gallery" class="py-20" dir="rtl">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">גלריה</h2>
+
+        <!-- Gallery Controls -->
+        <div class="flex justify-center mb-8">
+            <button id="toggleGallery" class="bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+                <span class="expand-text">הצג עוד תמונות</span>
+                <span class="collapse-text hidden">הצג פחות תמונות</span>
+            </button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div id="galleryGrid" class="grid grid-cols-2 md:grid-cols-3 gap-4 transition-all duration-500 overflow-hidden" style="max-height: 600px;">
+            <!-- Images will be inserted here dynamically -->
+        </div>
+    </div>
+</section>
+
+<script>
+    // Function to load gallery images
+    function loadGalleryImages() {
+        const galleryGrid = document.getElementById('galleryGrid');
+
+        // Function to create image element
+        function createImageElement(src) {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = 'Gallery Image';
+            img.className = 'w-full h-64 object-cover rounded-lg transition-transform duration-300 hover:scale-105 cursor-pointer';
+
+            // Add click handler for full-screen view
+            img.addEventListener('click', () => {
+                const fullScreen = document.createElement('div');
+                fullScreen.className = 'fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50';
+                const fullImg = document.createElement('img');
+                fullImg.src = src;
+                fullImg.className = 'max-h-[90vh] max-w-[90vw] object-contain';
+                fullScreen.appendChild(fullImg);
+
+                fullScreen.addEventListener('click', () => {
+                    fullScreen.remove();
+                });
+
+                document.body.appendChild(fullScreen);
+            });
+
+            return img;
+        }
+
+        // Generate array of image paths from 1 to 38
+        const galleryImages = Array.from({ length: 37 }, (_, i) => `images/${i + 1}.jpg`);
+
+        // Randomize the order of images
+        const shuffledImages = galleryImages.sort(() => Math.random() - 0.5);
+        galleryImages.forEach(imagePath => {
+            const img = createImageElement(imagePath);
+            galleryGrid.appendChild(img);
+        });
+    }
+
+    // Gallery expand/collapse functionality
+    document.addEventListener('DOMContentLoaded', () => {
+        const galleryGrid = document.getElementById('galleryGrid');
+        const toggleButton = document.getElementById('toggleGallery');
+        const expandText = toggleButton.querySelector('.expand-text');
+        const collapseText = toggleButton.querySelector('.collapse-text');
+        let isExpanded = false;
+
+        loadGalleryImages();
+
+        toggleButton.addEventListener('click', () => {
+            isExpanded = !isExpanded;
+            if (isExpanded) {
+                galleryGrid.style.maxHeight = galleryGrid.scrollHeight + 'px';
+                expandText.classList.add('hidden');
+                collapseText.classList.remove('hidden');
+            } else {
+                galleryGrid.style.maxHeight = '600px';
+                expandText.classList.remove('hidden');
+                collapseText.classList.add('hidden');
+            }
+        });
+    });
+</script>
+
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-10">צרו קשר</h2>
+        <h2 class="text-1xl md:text-2xl font-bold mb-4">אורי חלפון</h2>
+        <div class="space-y-6">
+            <div>
+                <a href="tel:0546470448" class="text-xl hover:text-gray-600">
+                    <i class="fas fa-phone mr-2"></i>054-647-0448
+                </a>
+            </div>
+            <div class="flex justify-center space-x-6">
+                <a href="https://instagram.com/pizzcado__catering" target="_blank" class="text-2xl hover:text-gray-600">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com/people/pizzaboy_orihalfon/100063509833568/" target="_blank" class="text-2xl hover:text-gray-600">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://wa.me/9720546470448" target="_blank" class="text-2xl hover:text-gray-600">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-8">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-8">
+            <p>&copy; <span id="current-year"></span> Pizzcado. All rights reserved.</p>
+        </div>
+
+        <!-- Admin Section -->
+        <div class="max-w-xs mx-auto mt-8">
+            <div class="flex items-center space-x-2">
+                <input type="password" id="adminPassword" placeholder="Admin Password"
+                       class="w-full px-3 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-gray-500">
+                <button id="adminLogin"
+                        class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors">
+                    →
+                </button>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+
+    // Update copyright year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Add this to your existing script section
+    document.getElementById('adminLogin').addEventListener('click', () => {
+        const password = document.getElementById('adminPassword').value;
+        if (password === '0772030207') { // Change this to your desired password
+            window.location.href = 'calculator.html';
+        } else {
+            alert('סיסמה שגויה');
+        }
+    });
+
+    // Also handle Enter key
+    document.getElementById('adminPassword').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            document.getElementById('adminLogin').click();
+        }
+    });
+
+</script>
 </body>
-
 </html>
